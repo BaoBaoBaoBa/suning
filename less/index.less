@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+
+
+//变量
+@snColor:#fabc09;
+//混入
+.pxTrem(@px:750px){
+    
+    @media(min-width:@px){
+        
+        html{
+            font-size: @px/750*100;
+        }
+    }
+}
+/*rem 适配*/
+/* 根据设计稿*/
+html {
+    font-size: 42.666666667%;
+}
+.pxTrem(320px);
+.pxTrem(360px);
+.pxTrem(384px);
+.pxTrem(400px);
+.pxTrem(414px);
+
+.pxTrem(424px);
+.pxTrem(480px);
+.pxTrem(540px);
+.pxTrem(720px);
+.pxTrem();
+//reset css
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+a{
+  color: #333;
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+input,textarea{
+  border: none;
+  outline: none;
+  resize: none;
+
+  -webkit-appearance: none;
+}
+/*common css*/
+.clearfix::before,.clearfix::after{
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+/* common css*/
+
+/*板模块*/
+.sn_layout {
+  max-width: 750px;
+  min-width: 320px;
+  margin: 0 auto;
+  
+}
+.sn_search {
+        width: 100%;
+         height: 90/100rem;
+        background: @snColor;
+        position: fixed;
+        left:0;
+        top:0;
+        >[class^=icon_]{
+            width: 90/100rem;
+            height: 90/100rem;
+            background-position:center  center; 
+            background-repeat: no-repeat;
+            position: absolute;
+            top:0;
+        }
+        .icon_cart {
+            right:0;
+            background-image: url(../images/icon_cart.png);
+             background-size: 63/100rem 68/100rem;
+        }
+        .icon_cate{
+             left: 0;
+               background-image: url(../images/icon_category.png);
+               background-size: 44/100rem 70/100rem;
+        }
+        form {
+            width: 100%;
+            padding: 0 90/100rem;
+            position: relative;
+            input {
+                width: 100%;
+                height: 60/100rem;
+                margin-top: 15/100rem;
+                background: rgba(255,255,255,0.5);
+                border-radius: 6/100rem;
+               font-size: 24/100rem;
+               padding-left: 45/100rem;
+            }
+            .icon_search {
+                width: 27/100rem;
+                height: 28/100rem;
+                background: url(../images/icon_search.png) no-repeat;
+                background-size: 27/100rem 28/100rem;
+                position: absolute;
+                left: 100/100rem;
+                top: 30/100rem;
+            }
+            
+        }
+}
+/* 轮播图*/
+.sn_banner {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 90/100rem;
+    position: relative;
+    ul {
+        &:first-child{
+           width: 1000%;
+        transform: translateX(-10%);
+         -webkit-transform: translateX(-10%);
+        li {
+            float: left;
+            width: 10%;
+            a {
+                display: block;
+                
+                
+                width: 100%;
+                
+                img {
+                    width:100%;
+                    display: block;
+                }
+            }
+        }
+        } 
+        &:last-child{
+            
+            position: absolute;
+            bottom: 20/100rem;
+            right: 50/100rem;
+          
+            li {
+                float: left;
+                margin-left: 12/100rem;
+                height: 12/100rem;
+                
+                width: 12/100rem;
+                background: #fff;
+                border-radius: 6/100rem;
+                &.active{
+                   background: @snColor; 
+                }
+            }
+        }
+}
+}
+
+/* 导航条部分*/
+.sn_nav {
+    width: 100%;
+    padding-top: 20/100rem;
+    ul {
+        width: 100%;
+//      margin-left: 30/100rem;
+//      text-align: center;
+
+
+        li {
+        float: left;
+        width: 20%;
+        padding-top:15/100rem;
+        
+        a {
+            width: 100%;
+            display: block;
+            img {
+               width: 80/100rem;
+              margin: 0 auto;
+                      
+               height: 80/100rem;
+               display: block;  
+            }
+            p{
+                font-size: 24/100rem;
+                text-align: center;
+                padding
+                : 10/100rem 0;
+            }
+        }
+        }
+    }
+}
+
+/* 底部tab*/
+.sn_tabs {
+    width: 100%;
+    background: #fff;
+    height: 100/100rem;
+    border-top: 1px solid #ccc;
+    position: fixed;
+    left: 0;
+    padding-top: 10/100re
+    
+    m;
+    bottom: 0;
+    ul {
+        width: 100%;
+        li {
+            float: left;
+            width: 20%;
+            a{
+                width: 100%;
+                display: block;
+                 font-size: 20/100rem;
+                 text-align: center;
+                 
+                &:hover {
+                    color: @snColor;}
+                    .fa {
+                        display: block;
+                        font-size: 50/100rem;  
+                    }
+                
+            }
+        }
+    }
+    
+
+
+}
+
+//广告
+.sn_adert {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5 );
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    img {
+        display: block;
+        width: 100%;
+        height: 6rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -3rem;
+
+    }
+}
